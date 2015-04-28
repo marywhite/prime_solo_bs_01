@@ -5,11 +5,6 @@ var apikey = 'e27fa347f5134d05d053b02acb00c1153f892615';
 // It is called after 'search' is executed.
 function searchCallback(results) {
     $(".search-results").empty();
-    // var game;
-    // var column = 0;
-    // var cell = '';
-    //$(".search-results").append('<div class="row"></div>');
-    
     for (var i = 0; i < 9; i++) {
     	if ((i % 3) == 0) {
 			$(".search-results").append('<div class="row"></div>');
@@ -19,31 +14,9 @@ function searchCallback(results) {
    		var image = '<img class="img-thumbnail hidden-xs hidden-s" src="' + game.image.icon_url + '"/><br>'
     	var deck = '<div>' + game.deck + '</div>'
     	var name = '<p class="lead text-center">' + game.name + '</p><br>'
-    	//cell +=('<div class="col-md-4 well">' + image  + name + deck + button + '</div>');
 		$(".row").last().append('<div class="col-md-4 well">' + image  + name + deck + button + '</div>');
 	}
 }
-
-
-
-
-
-
-
-
-//     	column++;
-//     	var button = '<button class="btn btn-sm btn-success remove"> remove content </button>'
-//     	var image = '<img class="img-thumbnail hidden-xs hidden-s" src="' + game.image.icon_url + '"/><br>'
-//     	var deck = '<div class="row">' + game.deck + '</div>'
-//     	var name = '<p class="lead text-center">' + game.name + '</p><br>'
-//     	cell +=('<div class="col-md-4 well">' + image  + name + deck + button + '</div>');
-//     	if ( column == 3) {
-//     		$(".search-results").append('<div class="row">' + cell + '</div>');
-//     		column = 0;
-//     		cell = '';
-//     	}
-//     }
-// }
 
 function reposition (){
 	var cells = $(".search-results").children().children();
