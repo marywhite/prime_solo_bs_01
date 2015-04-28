@@ -14,15 +14,14 @@ function searchCallback(results) {
    		var image = '<img class="img-thumbnail hidden-xs hidden-s" src="' + game.image.icon_url + '"/><br>'
     	var deck = '<div>' + game.deck + '</div>'
     	var name = '<p class="lead text-center">' + game.name + '</p><br>'
-		$(".row").last().append('<div class="col-md-4 well">' + image  + name + deck + button + '</div>');
+		var el = '<div class="col-md-4 well">' + image  + name + deck + button + '</div>'
+		$(".row").last().append(el).hide().delay(200).fadeIn("slow");
 	}
 }
 
 function reposition (){
 	var cells = $(".search-results").children().children();
 	$(".search-results").empty();
-	$(".search-results").append('<div class="row"></div>');
-
 	for (var i = 0; i < cells.length; i++){
 		if ((i % 3) == 0) {
 			$(".search-results").append('<div class="row"></div>');
@@ -41,8 +40,10 @@ $(document).ready(function() {
 	})
 
 	$(".search-results").on("click", ".remove", function() {
-		$(this).parent().remove();
-		reposition();
+		$(this).parent().fadeOut("slow", function(){
+			$(this).remove();
+			reposition();
+		});
 	});
 	
 });
