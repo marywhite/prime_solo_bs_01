@@ -1,10 +1,11 @@
 var apikey = 'e27fa347f5134d05d053b02acb00c1153f892615';
-
+var extras = [];
 
 // Use this function to do stuff with your results. 
 // It is called after 'search' is executed.
 function searchCallback(results) {
     $(".search-results").empty();
+    extras = results.slice(9);
     for (var i = 0; i < 9; i++) {
     	if ((i % 3) == 0) {
 			$(".search-results").append('<div class="row"></div>');
@@ -21,6 +22,8 @@ function searchCallback(results) {
 
 function reposition (){
 	var cells = $(".search-results").children().children();
+	var newContent = extras.shift();
+	console.log(newContent);
 	$(".search-results").empty();
 	for (var i = 0; i < cells.length; i++){
 		if ((i % 3) == 0) {
@@ -28,8 +31,9 @@ function reposition (){
 		}
 		$(".row").last().append(cells[i]);
 	}
+	$(".row").last().append('<div class="col-md-4 well">' + '<img class="img-thumbnail hidden-xs hidden-s" src="' + newContent.image.icon_url + '"/><br><p class="lead text-center">' + newContent.name + '</p><br><div>' + newContent.deck + '</div><button class="btn btn-sm btn-success remove"> remove content </button>' + '</div>');
 }
-	
+
 
 
 $(document).ready(function() {
@@ -45,7 +49,6 @@ $(document).ready(function() {
 			reposition();
 		});
 	});
-	
 });
 
 // HELPER FUNCTION
