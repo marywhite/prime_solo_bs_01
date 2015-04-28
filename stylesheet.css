@@ -1,0 +1,19 @@
+.row {
+    display: table;
+}
+
+.row .well {
+    display: table-cell;
+    float: none;
+    background-color: #B6D6F2;
+}
+
+.img-thumbnail {
+	margin: 1em auto;
+	display: block;
+}
+
+.btn {
+	margin: 1em auto;
+	display: block;
+}
