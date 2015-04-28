@@ -11,7 +11,7 @@ function searchCallback(results) {
     for (var i = 0; i < 9; i++) {
     	game = results[i];
     	column++;
-    	var button = '<button class="btn btn-sm btn-success"> remove content </button>'
+    	var button = '<button class="btn btn-sm btn-success remove"> remove content </button>'
     	var image = '<img class="img-thumbnail hidden-xs hidden-s" src="' + game.image.icon_url + '"/><br>'
     	cell +=('<div class="col-md-4 well">' + image  + '<p class="lead text-center">' + game.name + '</p><br>' + game.deck + button + '</div>');
     	if ( column == 3) {
@@ -28,6 +28,10 @@ $(document).ready(function() {
 		var searchTerm = $("#searchField").val();
 		search(searchTerm);
 	})
+
+	$(".search-results").on("click", "img", function() {
+		$(this).parent().remove();
+	});
 	
 });
 
