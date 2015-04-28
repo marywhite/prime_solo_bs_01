@@ -8,6 +8,13 @@
     background-color: #B6D6F2;
 }
 
+.nintendo {
+	display: block;
+	margin: 1em auto;
+	width: 10%;
+	height: auto;
+}
+
 .img-thumbnail {
 	margin: 1em auto;
 	display: block;
@@ -16,4 +23,10 @@
 .btn {
 	margin: 1em auto;
 	display: block;
+}
+
+.search {
+	display: block;
+	width: 20%;
+	margin: 2em auto;
 }
