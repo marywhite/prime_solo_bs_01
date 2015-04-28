@@ -2,7 +2,7 @@
     display: table;
 }
 
-.row .well {
+.well {
     display: table-cell;
     float: none;
     background-color: #B6D6F2;
